@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Diwali Magic | Priyanshu Singh</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #39164d, #080611 75%);
+    color: white;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px 12px;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(gold 1px, transparent 1px);
+    background-size: 65px 65px, 100px 100px;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from { opacity: .2; }
+    to { opacity: 1; }
+}
+
+.card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 480px;
+    padding: 35px 22px;
+    border: 1px solid #e6b93d;
+    border-radius: 25px;
+    background: rgba(20, 10, 32, .94);
+    box-shadow: 0 0 40px #ffb70044;
+}
+
+.diya {
+    font-size: 75px;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px orange); }
+    to { filter: drop-shadow(0 0 30px gold); }
+}
+
+h1 {
+    margin: 18px 0;
+    font-size: clamp(30px, 8vw, 40px);
+    background: linear-gradient(90deg, #fff4b0, #ffb700, #fff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro {
+    color: #f4dca5;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    border: 1px solid gold;
+    border-radius: 12px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+    background: #fff;
+    color: #24132e;
+}
+
+button {
+    padding: 14px 22px;
+    margin-top: 18px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff9900, #ffe28a);
+    color: #29133e;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px gold;
+}
+
+#result {
+    display: none;
+    margin-top: 28px;
+    padding: 18px 8px;
+    border-top: 1px solid #b88d32;
+    border-bottom: 1px solid #b88d32;
+    animation: appear 1s ease;
+}
+
+#result h2 {
+    color: #ffd76a;
+    margin-bottom: 15px;
+    font-size: 23px;
+}
+
+#result p {
+    color: #f6dfad;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ROYAL SIGNATURE */
+
+.signature {
+    margin-top: 35px;
+    padding: 20px 8px;
+    border-top: 1px solid #d6a83e;
+    border-bottom: 1px solid #d6a83e;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #ffd70022,
+        transparent
+    );
+}
+
+.crown {
+    display: block;
+    font-size: 29px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 10px gold);
+}
+
+.signature small {
+    display: block;
+    color: #e9c982;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+}
+
+.creator {
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: bold;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    background: linear-gradient(
+        90deg,
+        #fff4b0,
+        #ffbd24,
+        #fff4b0
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px #ffbf0088);
+}
+
+.signature p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 12px;
+    color: #d9b66a;
+}
+
+/* FIREWORKS */
+
+.spark {
+    position: fixed;
+    z-index: 5;
+    pointer-events: none;
+    font-size: 22px;
+    animation: fly 2s ease-out forwards;
+}
+
+@keyframes fly {
+    to {
+        transform: translate(var(--x), var(--y)) scale(0);
+        opacity: 0;
+    }
+}
+
+@media(max-width: 380px) {
+    .card {
+        padding: 28px 16px;
+    }
+
+    .signature small {
+        letter-spacing: 3px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+
+    <div class="diya">🪔</div>
+
+    <h1>Happy Diwali!</h1>
+
+    <p class="intro">
+        A little light, a little magic,
+        and a special wish just for you!
+        <br>
+        This Diwali, something special is waiting for you.
+    </p>
+
+    <input
+        type="text"
+        id="name"
+        placeholder="✨ Enter your name here..."
+        maxlength="30"
+    >
+
+    <button onclick="showWish()">
+        🎁 Reveal Your Surprise
+    </button>
+
+    <div id="result">
+
+        <h2 id="greeting"></h2>
+
+        <p>
+            May your life shine brighter than
+            a thousand diyas! 🪔
+            <br><br>
+
+            May your dreams touch the sky,
+            your heart stay full of happiness,
+            and your every new beginning
+            bring endless opportunities.
+            <br><br>
+
+            Keep Shining. Keep Smiling. 💛
+        </p>
+
+        <h2 style="margin-top:20px;">
+            🎆 Happy Diwali! 🎆
+        </h2>
+
+    </div>
+
+    <div class="signature">
+
+        <span class="crown">👑</span>
+
+        <small>A TOUCH OF MAGIC BY</small>
+
+        <div class="creator">
+            PRIYANSHU SINGH
+        </div>
+
+        <p>THE CREATOR OF DIWALI MAGIC ✨</p>
+
+    </div>
+
+</div>
+
+<script>
+
+function showWish() {
+
+    let name = document.getElementById("name").value.trim();
+
+    if (name === "") {
+        alert("Please enter your name first! 😊");
+        return;
+    }
+
+    document.getElementById("greeting").innerText =
+        "Happy Diwali, " + name + "! 💛";
+
+    document.getElementById("result").style.display = "block";
+
+    fireworks();
+
+}
+
+function fireworks() {
+
+    for (let i = 0; i < 70; i++) {
+
+        let spark = document.createElement("div");
+
+        spark.className = "spark";
+
+        spark.innerHTML = ["✨", "⭐", "🎆", "💛", "🌟"][
+            Math.floor(Math.random() * 5)
+        ];
+
+        spark.style.left = Math.random() * 100 + "vw";
+        spark.style.top = Math.random() * 80 + "vh";
+
+        spark.style.setProperty(
+            "--x",
+            (Math.random() - 0.5) * 350 + "px"
+        );
+
+        spark.style.setProperty(
+            "--y",
+            (Math.random() - 0.5) * 350 + "px"
+        );
+
+        document.body.appendChild(spark);
+
+        setTimeout(() => spark.remove(), 2000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
